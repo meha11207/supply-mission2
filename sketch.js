@@ -18,9 +18,6 @@ function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
 	
-
-
-
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
@@ -39,12 +36,12 @@ function setup() {
 	line2.shapeColor="red";
 	line3 = createSprite(310,610,20,100);
 	line3.shapeColor="red";
-
+    
 
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.1, isStatic:true});
 	World.add(world, packageBody);
 	
 
@@ -71,7 +68,6 @@ function draw() {
 function keyPressed() {
  if (keyCode == DOWN_ARROW) {
    Matter.Body.setStatic(packageBody,false);
-    
   }
 }
 
